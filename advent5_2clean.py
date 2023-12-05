@@ -10,8 +10,8 @@ def convert_to_next(ranges, conv_rule):
             # check if overlap and cut off non-overlap to check again
             if start < source_end and end > source_start:
                 is_found = True
-                out_start = destin_start + (max(start, source_start) - source_start)
-                conv_nrs.append((out_start, min(end, source_end) - max(start, source_start)))
+                conv_start = destin_start + (max(start, source_start) - source_start)
+                conv_nrs.append((conv_start, min(end, source_end) - max(start, source_start)))
                 # very slow to append to original list again
                 if start < source_start: ranges.append((start, source_start - start))
                 if end > source_end: ranges.append((source_end, end - source_end))
